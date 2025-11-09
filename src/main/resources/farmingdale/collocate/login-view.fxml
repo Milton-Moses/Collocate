@@ -23,7 +23,7 @@
             <Font size="32.0" />
          </font>
       </TextField>
-      <Button fx:id="loginButton" layoutX="781.0" layoutY="581.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="133.0" text="Login">
+      <Button fx:id="loginButton" layoutX="781.0" layoutY="581.0" mnemonicParsing="false" onAction="#goToCalendar" prefHeight="68.0" prefWidth="133.0" text="Login">
          <font>
             <Font size="32.0" />
          </font>
