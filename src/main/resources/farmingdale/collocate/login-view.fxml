@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="980.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.LoginController">
    <children>
       <Label layoutX="192.0" layoutY="419.0" text="Collocate">
@@ -14,22 +13,22 @@
             <Font size="96.0" />
          </font>
       </Label>
-      <TextField layoutX="710.0" layoutY="366.0" prefHeight="68.0" prefWidth="609.0" promptText="username...">
+      <TextField fx:id="usernameField" layoutX="710.0" layoutY="366.0" prefHeight="68.0" prefWidth="609.0" promptText="username...">
          <font>
             <Font size="32.0" />
          </font>
       </TextField>
-      <TextField layoutX="715.0" layoutY="477.0" prefHeight="68.0" prefWidth="610.0" promptText="password...">
+      <TextField fx:id="passField" layoutX="715.0" layoutY="477.0" prefHeight="68.0" prefWidth="610.0" promptText="password...">
          <font>
             <Font size="32.0" />
          </font>
       </TextField>
-      <Button layoutX="781.0" layoutY="581.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="133.0" text="Login">
+      <Button fx:id="loginButton" layoutX="781.0" layoutY="581.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="133.0" text="Login">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
-      <Button layoutX="1089.0" layoutY="581.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="170.0" text="Register">
+      <Button fx:id="registerButton" layoutX="1089.0" layoutY="581.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="68.0" prefWidth="170.0" text="Register">
          <font>
             <Font size="32.0" />
          </font>

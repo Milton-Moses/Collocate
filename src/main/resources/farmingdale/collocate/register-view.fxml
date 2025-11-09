@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="farmingdale.collocate.RegisterView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="1080.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.RegisterController">
+   <children>
+      <Label layoutX="372.0" layoutY="132.0" text="Create An Account">
+         <font>
+            <Font size="82.0" />
+         </font>
+      </Label>
+      <HBox layoutX="433.0" layoutY="306.0" prefHeight="270.0" prefWidth="554.0" spacing="50.0">
+         <children>
+            <VBox prefHeight="334.0" prefWidth="250.0" spacing="50.0">
+               <children>
+                  <TextField fx:id="fNameField" prefHeight="54.0" prefWidth="258.0" promptText="first name">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="lNameField" prefHeight="54.0" prefWidth="258.0" promptText="last name">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="emailField" prefHeight="54.0" prefWidth="258.0" promptText="email">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox prefHeight="334.0" prefWidth="250.0" spacing="50.0">
+               <children>
+                  <TextField fx:id="passField" prefHeight="54.0" prefWidth="258.0" promptText="password">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="confirmPassField" prefHeight="54.0" prefWidth="258.0" promptText="confirm password">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="orgField" prefHeight="54.0" prefWidth="258.0" promptText="organization name">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Button fx:id="registerButton" layoutX="657.0" layoutY="599.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="42.0" prefWidth="105.0" text="Register">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
