@@ -8,6 +8,10 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+/**
+ * Controller for the register-view.fxml file, allowing the user to create a new account.
+ * @author Aidan Rodriguez
+ */
 public class RegisterController {
     @FXML
     private TextField fNameField, lNameField, orgField, passField, confirmPassField, emailField;
@@ -15,6 +19,11 @@ public class RegisterController {
     @FXML
     private Button registerButton;
 
+    /**
+     * Returns the user to the Login page.
+     * @throws IOException Thrown if FXML file fails to load.
+     * @author Aidan Rodriguez
+     */
     @FXML
     private void goToLogin() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-view.fxml"));
