@@ -22,9 +22,10 @@ public class AIController {
      * @throws IOException Thrown if FXML file fails to load.
      * @author Aidan Rodriguez
      */
+    @FXML
     private void returnToCalendar() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("calendar-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1420, 1080);
+        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }

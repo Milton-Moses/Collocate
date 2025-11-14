@@ -28,7 +28,7 @@ public class LoginController {
     @FXML
     private void goToRegister() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("register-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1420, 1080);
+        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }
@@ -41,7 +41,7 @@ public class LoginController {
     @FXML
     private void goToCalendar() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("calendar-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1420, 1080);
+        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }

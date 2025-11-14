@@ -6,16 +6,16 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="980.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.AIController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.AIController">
    <children>
-      <TextField fx:id="promptField" layoutX="382.0" layoutY="182.0" prefHeight="62.0" prefWidth="655.0" promptText="Enter prompt here...">
+      <TextField fx:id="promptField" layoutX="268.0" layoutY="132.0" prefHeight="43.0" prefWidth="543.0" promptText="Enter prompt here...">
          <font>
             <Font size="20.0" />
          </font>
       </TextField>
-      <Button fx:id="returnButton" layoutX="1248.0" layoutY="865.0" mnemonicParsing="false" text="Return">
+      <Button fx:id="returnButton" layoutX="936.0" layoutY="632.0" mnemonicParsing="false" onAction="#returnToCalendar" prefHeight="33.0" prefWidth="90.0" text="Return">
          <font>
-            <Font size="25.0" />
+            <Font size="20.0" />
          </font>
       </Button>
    </children>

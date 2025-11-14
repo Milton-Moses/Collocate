@@ -23,7 +23,7 @@ public class CalendarController {
     @FXML
     private void logOut() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1420, 1080);
+        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }
@@ -36,7 +36,7 @@ public class CalendarController {
     @FXML
     private void goToAi() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ai-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1420, 1080);
+        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }

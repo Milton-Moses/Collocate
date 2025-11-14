@@ -27,7 +27,7 @@ public class RegisterController {
     @FXML
     private void goToLogin() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("login-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1420, 1080);
+        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }

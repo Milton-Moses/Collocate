@@ -4,34 +4,44 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="980.0" prefWidth="1420.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.LoginController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.LoginController">
    <children>
-      <Label layoutX="192.0" layoutY="419.0" text="Collocate">
+      <Label layoutX="117.0" layoutY="289.0" text="Collocate">
          <font>
             <Font size="96.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField" layoutX="710.0" layoutY="366.0" prefHeight="68.0" prefWidth="609.0" promptText="username...">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="passField" layoutX="715.0" layoutY="477.0" prefHeight="68.0" prefWidth="610.0" promptText="password...">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </TextField>
-      <Button fx:id="loginButton" layoutX="781.0" layoutY="581.0" mnemonicParsing="false" onAction="#goToCalendar" prefHeight="68.0" prefWidth="133.0" text="Login">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Button>
-      <Button fx:id="registerButton" layoutX="1089.0" layoutY="581.0" mnemonicParsing="false" onAction="#goToRegister" prefHeight="68.0" prefWidth="170.0" text="Register">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Button>
+      <VBox layoutX="632.0" layoutY="260.0" prefHeight="200.0" prefWidth="230.0" spacing="20.0">
+         <children>
+            <TextField fx:id="usernameField" prefHeight="33.0" prefWidth="266.0" promptText="username...">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="passField" prefHeight="43.0" prefWidth="266.0" promptText="password...">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="330.0" spacing="20.0">
+               <children>
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#goToCalendar" prefHeight="31.0" prefWidth="78.0" text="Login">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="registerButton" mnemonicParsing="false" onAction="#goToRegister" prefHeight="20.0" prefWidth="109.0" text="Register">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
