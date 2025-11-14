@@ -29,4 +29,13 @@ public class AIController {
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }
+
+    /**
+     * Updates the current prompt when the Enter key is pressed within the prompt text field.
+     * @author Aidan Rodriguez
+     */
+    @FXML
+    private void updatePrompt() {
+        promptText = promptField.getText();
+    }
 }

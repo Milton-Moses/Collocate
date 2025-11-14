@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.AIController">
    <children>
-      <TextField fx:id="promptField" layoutX="268.0" layoutY="132.0" prefHeight="43.0" prefWidth="543.0" promptText="Enter prompt here...">
+      <TextField fx:id="promptField" layoutX="268.0" layoutY="132.0" onAction="#updatePrompt" prefHeight="43.0" prefWidth="543.0" promptText="Enter prompt here...">
          <font>
             <Font size="20.0" />
          </font>
