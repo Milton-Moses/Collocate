@@ -14,6 +14,18 @@
 <junit.version>5.12.1</junit.version>  </properties>
 
   <dependencies>
+
+      <dependency>
+          <groupId>com.google.firebase</groupId>
+          <artifactId>firebase-admin</artifactId>
+          <version>9.2.0</version>
+      </dependency>
+
+      <dependency>
+          <groupId>com.google.cloud</groupId>
+          <artifactId>google-cloud-firestore</artifactId>
+          <version>3.16.3</version>
+      </dependency>
     <dependency>
       <groupId> com.google.firebase</groupId>
       <artifactId>firebase-admin</artifactId>
@@ -97,6 +109,17 @@
 
   <build>
     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <!-- set to the Java release you use (11, 17, etc.) -->
+                <release>17</release>
+                <!-- force use of classpath (not module-path) -->
+                <useModulePath>false</useModulePath>
+            </configuration>
+        </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>

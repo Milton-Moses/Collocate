@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.CalendarController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" stylesheets="@calendar-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.CalendarController">
    <children>
       <Button fx:id="logoutButton" layoutX="931.0" layoutY="630.0" mnemonicParsing="false" onAction="#logOut" prefHeight="43.0" prefWidth="104.0" text="Logout...">
          <font>
