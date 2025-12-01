@@ -9,6 +9,9 @@ module farmingdale.collocate {
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires com.google.auth.oauth2;
+    requires google.cloud.firestore;
+    requires firebase.admin;
 
     opens farmingdale.collocate to javafx.fxml;
     exports farmingdale.collocate;
