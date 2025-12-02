@@ -12,6 +12,7 @@ module farmingdale.collocate {
     requires com.google.auth.oauth2;
     requires google.cloud.firestore;
     requires firebase.admin;
+    requires com.google.api.apicommon;
 
     opens farmingdale.collocate to javafx.fxml;
     exports farmingdale.collocate;
