@@ -5,26 +5,26 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" stylesheets="@calendar-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.CalendarController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="anchor-pane" stylesheets="@calendar-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.CalendarController">
    <children>
-      <Button fx:id="logoutButton" layoutX="931.0" layoutY="630.0" mnemonicParsing="false" onAction="#logOut" prefHeight="43.0" prefWidth="104.0" text="Logout...">
+      <Button fx:id="logoutButton" layoutX="931.0" layoutY="630.0" mnemonicParsing="false" onAction="#logOut" prefHeight="43.0" prefWidth="104.0" styleClass="logout-button" text="Logout...">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="504.0" prefHeight="170.0" prefWidth="175.0" spacing="20.0">
+      <VBox alignment="TOP_CENTER" layoutX="63.0" layoutY="504.0" prefHeight="170.0" prefWidth="175.0" spacing="20.0" styleClass="buttons-box">
          <children>
-            <Button fx:id="clientButton" mnemonicParsing="false" prefHeight="29.0" prefWidth="104.0" text="Clients">
+            <Button fx:id="clientButton" mnemonicParsing="false" prefHeight="29.0" prefWidth="104.0" styleClass="clients-button" text="Clients">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="newEventButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="134.0" text="New Event">
+            <Button fx:id="newEventButton" mnemonicParsing="false" prefHeight="20.0" prefWidth="134.0" styleClass="event-button" text="New Event">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="aiButton" mnemonicParsing="false" onAction="#goToAi" prefHeight="17.0" prefWidth="146.0" text="AI Assistance">
+            <Button fx:id="aiButton" mnemonicParsing="false" onAction="#goToAi" prefHeight="17.0" prefWidth="146.0" styleClass="ai-button" text="AI Assistance">
                <font>
                   <Font size="20.0" />
                </font>
