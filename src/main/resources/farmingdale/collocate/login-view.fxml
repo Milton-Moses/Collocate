@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@com/collocate/style/collocate-theme.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.LoginController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="root" stylesheets="@login-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.LoginController">
 
    <children>
       <Label layoutX="117.0" layoutY="289.0" text="Collocate">
@@ -31,7 +31,7 @@
             </TextField>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="330.0" spacing="20.0">
                <children>
-                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#goToCalendar" prefHeight="31.0" prefWidth="78.0" stylesheets="@com/collocate/style/collocate-theme.css" text="Login">
+                  <Button fx:id="loginButton" mnemonicParsing="false" onAction="#goToCalendar" prefHeight="31.0" prefWidth="78.0" stylesheets="@login-style.css" text="Login">
                      <font>
                         <Font size="20.0" />
                      </font>
