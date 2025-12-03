@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="anchor-pane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.RegisterController">
+<AnchorPane prefHeight="720.0" prefWidth="1080.0" styleClass="anchor-pane" stylesheets="@register-style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.RegisterController">
    <children>
-      <Label layoutX="202.0" layoutY="84.0" styleClass="create-account-label" text="Create An Account">
+      <Label layoutX="119.0" layoutY="83.0" styleClass="create-account-label" text="Create An Account">
          <font>
             <Font size="82.0" />
          </font>
