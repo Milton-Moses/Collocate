@@ -1,0 +1,31 @@
+.anchor-pane {
+    -fx-font-family: "Inter";
+    -fx-background-color: linear-gradient(#0d3d35, #f1f1f1);
+}
+
+.button {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-padding: 10px 16px;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-background-radius: 10px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #3c7ac0;
+}
+
+.button:pressed {
+    -fx-background-color: #306299;
+}
+
+.button-secondary {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #333;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #cfcfcf;
+}
