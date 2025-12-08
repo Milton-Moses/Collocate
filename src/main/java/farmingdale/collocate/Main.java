@@ -36,7 +36,7 @@ public class Main extends Application {
     public static Stage mainStage;
     public static Firestore fstore;
     public static FirebaseAuth fauth;
-    private final FirestoreContext contxtFirebase = new FirestoreContext();
+    private final FirestoreContext contextFirebase = new FirestoreContext();
 
     @Override
     public void start(Stage stage) throws IOException {
