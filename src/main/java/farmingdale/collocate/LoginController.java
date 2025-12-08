@@ -40,8 +40,8 @@ public class LoginController {
      */
     @FXML
     private void goToCalendar() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("calendar-view.fxml"));
-        Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("MainMenu/mainmenu.fxml"));
+        Main.scene = new Scene(fxmlLoader.load(), 1920, 1080);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
     }
