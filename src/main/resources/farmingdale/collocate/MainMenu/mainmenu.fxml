@@ -8,10 +8,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.MainMenuController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="anchor-pane" stylesheets="@mainmenu.css">
          <children>
@@ -22,7 +23,7 @@
             </AnchorPane>
             <AnchorPane layoutX="14.0" layoutY="25.0" prefHeight="283.0" prefWidth="92.0" styleClass="anchor-pane-sidebar" stylesheets="@mainmenu.css">
                <children>
-                  <Button alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="220.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="67.0" styleClass="button2" textAlignment="RIGHT">
+                  <Button fx:id="clientListButton" alignment="BOTTOM_CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleClientListButtonClick" prefHeight="49.0" prefWidth="67.0" styleClass="button2" textAlignment="RIGHT">
                      <graphic>
                         <ImageView fitHeight="25.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -37,7 +38,7 @@
                         <Font name="Apple SD Gothic Neo Regular" size="13.0" />
                      </font>
                   </Button>
-                  <Button alignment="BOTTOM_CENTER" layoutX="13.0" layoutY="83.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="67.0" styleClass="button2">
+                  <Button fx:id="HomeButton" alignment="BOTTOM_CENTER" layoutX="13.0" layoutY="83.0" mnemonicParsing="false" onAction="#handleHomeButtonClick" prefHeight="49.0" prefWidth="67.0" styleClass="button2">
                      <graphic>
                         <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -49,7 +50,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="13.0" layoutY="151.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="67.0" styleClass="button2" textAlignment="RIGHT">
+                  <Button fx:id="projectListButton" layoutX="13.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleProjectListButtonClick" prefHeight="49.0" prefWidth="67.0" styleClass="button2" textAlignment="RIGHT">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -131,6 +132,12 @@
                   </Button>
                </children>
             </AnchorPane>
+             <VBox alignment="CENTER" fillWidth="false" layoutX="253.0" layoutY="168.0" prefHeight="677.0" prefWidth="1288.0" xmlns:fx="http://javafx.com/fxml">
+
+                 <VBox fx:id="contentArea" alignment="CENTER" prefHeight="709.0" prefWidth="1425.0" style="-fx-border-color: blue;">
+                     <fx:include source="../Home/home.fxml" />
+                 </VBox>
+             </VBox>
          </children>
       </AnchorPane>
    </children>
