@@ -6,11 +6,15 @@ public class TesterPerson {
     private String email;
     private String username;
     private String password;
-    public TesterPerson(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public TesterPerson() {
 
+        this.username = "Atester";
+        this.password = "Btester";
+        this.email = "something@gmail.com";
+        this.firstName = "Ctester";
+        this.lastName = "Dtester";
     }
+
     public String getFirstName() {
         return firstName;
     }
