@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="CONTROLLER_NAME"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="742.0" prefWidth="1373.0" styleClass="interactive-transparent" stylesheets="@page.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.HomeController">
+   <children>
+      <Text fill="WHITE" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Projects" wrappingWidth="152.21630859375">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, User" wrappingWidth="458.21630859375" AnchorPane.leftAnchor="0.0">
+         <font>
+            <Font name="Avenir Roman" size="61.0" />
+         </font>
+      </Text>
+      <ListView fixedCellSize="7.0" layoutY="202.0" prefHeight="540.0" prefWidth="658.0" />
+      <Text fill="WHITE" layoutX="717.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starred Projects" wrappingWidth="198.21630859375">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <ListView fixedCellSize="7.0" layoutX="717.0" layoutY="520.0" prefHeight="222.0" prefWidth="658.0" />
+      <Text fill="WHITE" layoutX="717.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Clients" wrappingWidth="198.21630859375">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <ListView fixedCellSize="7.0" layoutX="717.0" layoutY="202.0" prefHeight="266.0" prefWidth="658.0" />
+   </children>
 </AnchorPane>
