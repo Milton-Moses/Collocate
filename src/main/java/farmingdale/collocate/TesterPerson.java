@@ -7,6 +7,7 @@ public class TesterPerson {
     private String username;
     private String password;
 
+    private Project db;
 
 
     public TesterPerson() {
