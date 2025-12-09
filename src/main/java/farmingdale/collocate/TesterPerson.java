@@ -10,9 +10,8 @@ public class TesterPerson {
     private String username;
     private String password;
 
-    // --- Added starredProjects list here ---
     private ArrayList<String> recentProjects = new ArrayList<>();
-    private ArrayList<String> starredProjects = new ArrayList<>(); // NEW
+    private ArrayList<String> starredProjects = new ArrayList<>();
     private ArrayList<String> recentClients = new ArrayList<>();
     private ArrayList<String> allProjects = new ArrayList<>();
 
@@ -32,11 +31,9 @@ public class TesterPerson {
         generateDummyData();
     }
 
-    // ------------------- Getters for Lists -------------------
 
     public ArrayList<String> getRecentProjects() { return recentProjects; }
 
-    // --- Added Getter for Starred Projects ---
     public ArrayList<String> getStarredProjects() { return starredProjects; }
 
     public ArrayList<String> getRecentClients() { return recentClients; }
@@ -44,12 +41,10 @@ public class TesterPerson {
     public ArrayList<String> getAllProjects() { return allProjects; }
 
     private void generateDummyData() {
-        // 1. Recent Projects
         recentProjects.add("Website Redesign");
         recentProjects.add("Mobile App v2.0");
         recentProjects.add("Database Migration");
 
-        // 2. All Projects (Add Recent + New ones)
         allProjects.addAll(recentProjects);
         allProjects.add("Legacy System Cleanup");
         allProjects.add("HR Portal Internal");
@@ -58,11 +53,9 @@ public class TesterPerson {
         allProjects.add("Cloud Server Setup");
         allProjects.add("Marketing Campaign 2024");
 
-        // 3. Starred Projects (NEW DATA)
         starredProjects.add("Mobile App v2.0");
         starredProjects.add("Inventory Management System");
 
-        // 4. Recent Clients
         recentClients.add("Acme Corp");
         recentClients.add("Stark Industries");
         recentClients.add("Wayne Enterprises");
@@ -77,7 +70,6 @@ public class TesterPerson {
         return this.password != null && this.password.equals(inputPassword);
     }
 
-    // ------------------- Standard Getters/Setters -------------------
 
     public Project getDb() { return db; }
     public void setDb(Project db) { this.db = db; }

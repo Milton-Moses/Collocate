@@ -13,5 +13,5 @@ public class Client {
     public String getType() { return type; }
 
     @Override
-    public String toString() { return name; } // Important for Dropdowns
+    public String toString() { return name; }
 }

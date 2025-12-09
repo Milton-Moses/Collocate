@@ -17,8 +17,6 @@ public class HomeController {
 
     @FXML
     public void initialize() {
-        // We only set the loading text here.
-        // We do NOT set up listeners yet because 'mainController' is still null.
         GreetingText.setText("Loading...");
     }
 
@@ -32,7 +30,6 @@ public class HomeController {
         if (this.currentUser != null) {
             GreetingText.setText("Hello " + currentUser.getUsername());
 
-            // 1. Populate the Lists
             if (currentUser.getRecentProjects() != null) {
                 recentProjectsList.setItems(FXCollections.observableArrayList(currentUser.getRecentProjects()));
             }
@@ -43,7 +40,6 @@ public class HomeController {
                 starredProjectsList.setItems(FXCollections.observableArrayList(currentUser.getStarredProjects()));
             }
 
-            // 2. Setup the Listeners (Now that mainController is valid)
             setupProjectListener(recentProjectsList);
             setupProjectListener(starredProjectsList);
 
@@ -57,13 +53,8 @@ public class HomeController {
      */
     private void setupProjectListener(ListView<String> listView) {
         listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
-            // Check that we have a valid selection and the parent controller
             if (newVal != null && mainController != null) {
-
-                // CORRECT: Ask the Main Menu to swap the content area
                 mainController.openProject(newVal);
-
-                // Clear selection so the user can click the same item again if they return
                 listView.getSelectionModel().clearSelection();
             }
         });
@@ -73,7 +64,6 @@ public class HomeController {
         listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 System.out.println("Go to client view for: " + newVal);
-                // In the future: mainController.openClient(newVal);
                 listView.getSelectionModel().clearSelection();
             }
         });

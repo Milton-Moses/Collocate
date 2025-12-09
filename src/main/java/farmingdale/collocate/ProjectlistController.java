@@ -12,9 +12,9 @@ public class ProjectlistController {
     @FXML private ListView<String> recentProjectsList;
 
     private TesterPerson currentUser;
-    private MainMenuController mainController; // Reference to parent
+    private MainMenuController mainController;
 
-    // Updated initData to accept the Main Controller
+
     public void initData(TesterPerson user, MainMenuController mainController) {
         this.currentUser = user;
         this.mainController = mainController;

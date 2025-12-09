@@ -20,13 +20,11 @@ public class EventViewController {
     @FXML private TextField quickAddInput;
     @FXML private Label subtitleLabel;
 
-    // Placeholder Data List
     private List<EventItem> events = new ArrayList<>();
     private String currentProject;
 
     @FXML
     public void initialize() {
-        // Add some dummy data for demonstration
         events.add(new EventItem("Initial Client Meeting", LocalDate.now().minusDays(1), true));
         events.add(new EventItem("Draft Architecture Diagram", LocalDate.now().plusDays(2), false));
         events.add(new EventItem("Submit Budget Proposal", LocalDate.now().plusDays(5), false));
@@ -40,8 +38,6 @@ public class EventViewController {
      */
     public void loadEventsFor(String projectName) {
         this.currentProject = projectName;
-        // In a real app, you would query the DB here:
-        // events = db.getEvents(projectName);
         System.out.println("Loading events for: " + projectName);
         renderEvents();
     }
@@ -58,6 +54,7 @@ public class EventViewController {
 
     /**
      * Clears the list and rebuilds the UI from the data list.
+     * @author Milton Moses
      */
     private void renderEvents() {
         eventListContainer.getChildren().clear();
@@ -66,7 +63,6 @@ public class EventViewController {
         for (EventItem item : events) {
             if (!item.isCompleted) pendingCount++;
 
-            // Create the Card (HBox)
             HBox card = createEventCard(item);
             eventListContainer.getChildren().add(card);
         }
@@ -81,18 +77,15 @@ public class EventViewController {
         HBox card = new HBox();
         card.setAlignment(Pos.CENTER_LEFT);
         card.setSpacing(15);
-        // Apply CSS class based on completion status
         card.getStyleClass().add(item.isCompleted ? "event-card-completed" : "event-card");
 
-        // 1. Checkbox
         CheckBox checkBox = new CheckBox();
         checkBox.setSelected(item.isCompleted);
         checkBox.setOnAction(e -> {
             item.isCompleted = checkBox.isSelected();
-            renderEvents(); // Re-render to update styles
+            renderEvents();
         });
 
-        // 2. Text Details (VBox)
         VBox details = new VBox();
         details.setAlignment(Pos.CENTER_LEFT);
 
@@ -104,11 +97,9 @@ public class EventViewController {
 
         details.getChildren().addAll(titleLbl, dateLbl);
 
-        // 3. Spacer
         HBox spacer = new HBox();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        // 4. Delete Button
         Button delBtn = new Button("✕");
         delBtn.getStyleClass().add("icon-button");
         delBtn.setOnAction(e -> {
@@ -120,7 +111,6 @@ public class EventViewController {
         return card;
     }
 
-    // Simple placeholder class
     private static class EventItem {
         String title;
         LocalDate date;
