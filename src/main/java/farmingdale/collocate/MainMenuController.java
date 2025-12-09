@@ -16,7 +16,7 @@ public class MainMenuController {
     @FXML private Button HomeButton;
     @FXML private Button projectListButton;
 
-    @FXML private HomeController homeViewController; // The embedded Home view
+    @FXML private HomeController homeViewController;
 
     private TesterPerson sessionUser;
 
@@ -27,8 +27,6 @@ public class MainMenuController {
 
     public void initData(TesterPerson user) {
         this.sessionUser = user;
-
-        // Pass 'this' (the MainMenuController) to the embedded Home view
         if (homeViewController != null) {
             homeViewController.initData(user, this);
         }
@@ -39,11 +37,8 @@ public class MainMenuController {
      */
     public void openProject(String projectName) {
         try {
-            // FIX: Use the full path starting with /
-            // Adjust "ProjectView" if your folder is named differently
             URL fxmlUrl = getClass().getResource("/farmingdale/collocate/ProjectView/projectview.fxml");
 
-            // Fallback: If not in a subfolder, try the root package
             if (fxmlUrl == null) {
                 fxmlUrl = getClass().getResource("/farmingdale/collocate/projectview.fxml");
             }
@@ -59,7 +54,6 @@ public class MainMenuController {
             ProjectViewController controller = loader.getController();
             controller.setProjectName(projectName);
 
-            // Pass the user if needed: controller.initData(sessionUser);
 
             contentArea.getChildren().setAll(view);
 
@@ -80,7 +74,6 @@ public class MainMenuController {
             Parent newView = loader.load();
             Object controller = loader.getController();
 
-            // --- CRITICAL CHANGE: Pass 'this' to children ---
             if (controller instanceof HomeController) {
                 ((HomeController) controller).initData(sessionUser, this);
             }
@@ -113,7 +106,6 @@ public class MainMenuController {
         loadView("Home/home.fxml");
     }
 
-    // --- Button Styling Helpers ---
 
     private void setClientListButtonColorActive(){
         resetButtonStyles();

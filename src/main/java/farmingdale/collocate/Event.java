@@ -4,10 +4,9 @@ import java.time.LocalDate;
 
 public class Event {
     private String eventName;
-    private Client associatedClient; // This must be a Client object, not a String
+    private Client associatedClient;
     private LocalDate date;
 
-    // CONSTRUCTOR: Notice the second parameter is 'Client', not 'String'
     public Event(String eventName, Client client, LocalDate date) {
         this.eventName = eventName;
         this.associatedClient = client;

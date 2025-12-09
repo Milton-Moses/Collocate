@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Controller for the login-view.fxml.
- * Handles authentication (IEEE 4.1) and navigation.
+ * @author Milton Moses
  */
 public class LoginController {
 
@@ -21,8 +21,6 @@ public class LoginController {
 
     @FXML
     private TextField usernameField, passField;
-
-    // Represents the "Database" of registered users
     private ArrayList<TesterPerson> registeredUsers;
 
     /**
@@ -31,7 +29,6 @@ public class LoginController {
      */
     @FXML
     public void initialize() {
-        // Load 10 random users + the specific 'admin' account
         this.registeredUsers = DataSeeder.generateUsers(10);
 
         // Debugging: Print valid users to console so you know who to login as
@@ -49,7 +46,6 @@ public class LoginController {
     @FXML
     private void goToRegister() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("register-view.fxml"));
-        // Using getClass().getResource() is generally safer than Main.class in larger projects
         Main.scene = new Scene(fxmlLoader.load(), 1080, 720);
         Main.mainStage.setScene(Main.scene);
         Main.mainStage.show();
@@ -62,29 +58,23 @@ public class LoginController {
     private void goToCalendar() {
         String inputUser = usernameField.getText();
         String inputPass = passField.getText();
-
-        // 1. Validate Input (Basic empty check)
         if (inputUser.isEmpty() || inputPass.isEmpty()) {
             showAlert("Login Error", "Please enter both username and password.");
             return;
         }
 
-        // 2. Search for the user in our "Database"
         TesterPerson validUser = null;
         for (TesterPerson user : registeredUsers) {
-            // Using the verifyPassword method we added to TesterPerson
             if (user.getUsername().equals(inputUser) && user.verifyPassword(inputPass)) {
                 validUser = user;
                 break;
             }
         }
 
-        // 3. Handle Result
         if (validUser != null) {
             System.out.println("Login Successful for: " + validUser.getUsername());
             loadMainMenu(validUser);
         } else {
-            // Requirement 4.1.2 - Deny access
             showAlert("Login Failed", "Invalid username or password.");
         }
     }
@@ -94,7 +84,6 @@ public class LoginController {
      */
     private void loadMainMenu(TesterPerson loggedInUser) {
         try {
-            // Note: Update path if your mainmenu.fxml is in a subfolder like /MainMenu/
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu/mainmenu.fxml"));
             Parent root = fxmlLoader.load();
 
