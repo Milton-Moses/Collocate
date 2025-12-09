@@ -44,10 +44,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        // Inside your Main or Controller
         ArrayList<TesterPerson> allUsers = DataSeeder.generateUsers(20);
 
-// Print them out to console to verify
         for (TesterPerson p : allUsers) {
             System.out.println("User: " + p.getUsername() + " | Password: " + p.getPassword());
             System.out.println("   -> Clients: " + p.getDb().getClients().size());
