@@ -1,0 +1,112 @@
+/* --- Global Background (Matches Calendar) --- */
+.anchor-pane {
+    -fx-font-family: "Inter", "Arial";
+    -fx-background-color: linear-gradient(to bottom, #0d3d35, #1a5e50);
+}
+
+/* --- The Main "Liquid Glass" Container --- */
+.glass-pane {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 15, 0, 0, 5);
+}
+
+/* --- ScrollPane Transparency --- */
+.glass-scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent; /* Essential for JavaFX ScrollPane */
+}
+
+.glass-scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* --- Event Card (Active) --- */
+.event-card {
+    -fx-background-color: linear-gradient(to right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-padding: 15;
+    -fx-cursor: hand;
+}
+
+.event-card:hover {
+    -fx-background-color: linear-gradient(to right, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+/* --- Event Card (Completed) --- */
+.event-card-completed {
+    -fx-background-color: rgba(0, 0, 0, 0.2); /* Darker/dimmer */
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.1);
+    -fx-padding: 15;
+    -fx-opacity: 0.7;
+}
+
+/* --- Typography --- */
+.event-title {
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.event-card-completed .event-title {
+    -fx-text-fill: #a0a0a0;
+    -fx-strikethrough: true;
+}
+
+.event-date {
+    -fx-text-fill: #cccccc;
+    -fx-font-size: 12px;
+}
+
+/* --- Inputs and Buttons --- */
+.glass-input {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: #dddddd;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-padding: 8 15;
+}
+
+.glass-button-action {
+    -fx-background-color: #4A90E2;
+    -fx-text-fill: white;
+    -fx-background-radius: 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255,255,255,0.3);
+}
+
+.glass-button-action:hover {
+    -fx-background-color: #5aaaff;
+}
+
+.icon-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: rgba(255, 255, 255, 0.5);
+    -fx-font-size: 14px;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+.icon-button:hover {
+    -fx-text-fill: #ff6b6b;
+}
+
+/* --- CheckBox Styling --- */
+.check-box .box {
+    -fx-background-color: rgba(255,255,255,0.1);
+    -fx-border-color: rgba(255,255,255,0.5);
+    -fx-border-radius: 4px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: white;
+}

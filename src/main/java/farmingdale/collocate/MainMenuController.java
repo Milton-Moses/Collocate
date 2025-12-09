@@ -6,76 +6,87 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
-
-
 import java.io.IOException;
 import java.net.URL;
 
 public class MainMenuController {
 
-    @FXML
-    public VBox contentArea;
-    @FXML
-    private Button clientListButton;
-    @FXML
-    private Button HomeButton;
-    @FXML
-    private Button projectListButton;
+    @FXML public VBox contentArea;
+    @FXML private Button clientListButton;
+    @FXML private Button HomeButton;
+    @FXML private Button projectListButton;
+
+    @FXML private HomeController homeViewController; // The embedded Home view
 
     private TesterPerson sessionUser;
-
-    // CHANGE 1: Updated type to HomeViewController
-    // Note: ensure your FXML <fx:include> has fx:id="homeView" for this to work!
-    @FXML
-    private HomeController homeViewController;
-
 
     @FXML
     public void initialize() {
         setHomeButtonColorActive();
-        System.out.println("Main Menu initialized.");
     }
 
     public void initData(TesterPerson user) {
         this.sessionUser = user;
-        System.out.println("MainMenu received user: " + user.getUsername());
 
-        // DEBUG CHECK
-        if (homeViewController == null) {
-            System.out.println("CRITICAL ERROR: homeViewController is NULL. Check fx:id in FXML!");
-        } else {
-            System.out.println("SUCCESS: Passing data to embedded Home Controller.");
-            homeViewController.initData(user);
+        // Pass 'this' (the MainMenuController) to the embedded Home view
+        if (homeViewController != null) {
+            homeViewController.initData(user, this);
         }
     }
 
     /**
-     * Loads a new view and passes the User data to the new controller.
+     * Specialized method to load a specific project into the content area.
      */
-    public void loadView(String fxmlPath) {
-
+    public void openProject(String projectName) {
         try {
-            URL fxmlUrl = getClass().getResource(fxmlPath);
+            // FIX: Use the full path starting with /
+            // Adjust "ProjectView" if your folder is named differently
+            URL fxmlUrl = getClass().getResource("/farmingdale/collocate/ProjectView/projectview.fxml");
+
+            // Fallback: If not in a subfolder, try the root package
+            if (fxmlUrl == null) {
+                fxmlUrl = getClass().getResource("/farmingdale/collocate/projectview.fxml");
+            }
 
             if (fxmlUrl == null) {
-                System.out.println("CRITICAL ERROR: FXML file not found at: " + fxmlPath);
+                System.out.println("CRITICAL ERROR: Could not find projectview.fxml in any expected folder.");
+                return;
+            }
+
+            FXMLLoader loader = new FXMLLoader(fxmlUrl);
+            Parent view = loader.load();
+
+            ProjectViewController controller = loader.getController();
+            controller.setProjectName(projectName);
+
+            // Pass the user if needed: controller.initData(sessionUser);
+
+            contentArea.getChildren().setAll(view);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void loadView(String fxmlPath) {
+        try {
+            URL fxmlUrl = getClass().getResource(fxmlPath);
+            if (fxmlUrl == null) {
+                System.out.println("ERROR: Missing FXML at " + fxmlPath);
                 return;
             }
 
             FXMLLoader loader = new FXMLLoader(fxmlUrl);
             Parent newView = loader.load();
-
             Object controller = loader.getController();
 
-            // CHANGE 3: Check for HomeViewController
+            // --- CRITICAL CHANGE: Pass 'this' to children ---
             if (controller instanceof HomeController) {
-                ((HomeController) controller).initData(sessionUser);
+                ((HomeController) controller).initData(sessionUser, this);
             }
             else if (controller instanceof ProjectlistController) {
-                // Example for future controllers:
-                ((ProjectlistController) controller).initData(sessionUser);
+                ((ProjectlistController) controller).initData(sessionUser, this);
             }
-
 
             contentArea.getChildren().setAll(newView);
 
@@ -83,8 +94,6 @@ public class MainMenuController {
             e.printStackTrace();
         }
     }
-
-    // --- Navigation Handlers ---
 
     @FXML
     private void handleClientListButtonClick(ActionEvent event) {

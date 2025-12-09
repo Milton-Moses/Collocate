@@ -1,45 +1,56 @@
 package farmingdale.collocate;
 
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
 public class ProjectlistController {
 
-    @FXML
-    private ListView<String> allProjectsList;
-
-    @FXML
-    private ListView<String> starredProjectsList;
-
-    @FXML
-    private ListView<String> recentProjectsList;
+    @FXML private ListView<String> allProjectsList;
+    @FXML private ListView<String> starredProjectsList;
+    @FXML private ListView<String> recentProjectsList;
 
     private TesterPerson currentUser;
+    private MainMenuController mainController; // Reference to parent
 
-    public void initData(TesterPerson user) {
+    // Updated initData to accept the Main Controller
+    public void initData(TesterPerson user, MainMenuController mainController) {
         this.currentUser = user;
+        this.mainController = mainController;
 
-        if (this.currentUser != null) {
+        setupListeners();
+        populateLists();
+    }
 
-            // --- CHANGE 1: Use getAllProjects() for the main list ---
-            if (currentUser.getAllProjects() != null) {
-                ObservableList<String> allProjects = FXCollections.observableArrayList(currentUser.getAllProjects());
-                allProjectsList.setItems(allProjects);
+    private void setupListeners() {
+        setupList(allProjectsList);
+        setupList(starredProjectsList);
+        setupList(recentProjectsList);
+    }
+
+    private void setupList(ListView<String> listView) {
+        listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null && mainController != null) {
+                mainController.openProject(newVal);
+                Platform.runLater(() -> {
+                    listView.getSelectionModel().clearSelection();
+                });
             }
+        });
+    }
 
-            // --- No changes below here (keeps using Recent list) ---
-            if (currentUser.getRecentProjects() != null) {
-                ObservableList<String> recentProjects = FXCollections.observableArrayList(currentUser.getRecentProjects());
-                recentProjectsList.setItems(recentProjects);
-            }
+    private void populateLists() {
+        if (currentUser == null) return;
 
-            // Starred Projects (Mock Data)
-            if (currentUser.getStarredProjects() != null) {
-                ObservableList<String> starredProjects = FXCollections.observableArrayList(currentUser.getStarredProjects());
-                starredProjectsList.setItems(starredProjects);
-            }
+        if (currentUser.getAllProjects() != null) {
+            allProjectsList.setItems(FXCollections.observableArrayList(currentUser.getAllProjects()));
+        }
+        if (currentUser.getRecentProjects() != null) {
+            recentProjectsList.setItems(FXCollections.observableArrayList(currentUser.getRecentProjects()));
+        }
+        if (currentUser.getStarredProjects() != null) {
+            starredProjectsList.setItems(FXCollections.observableArrayList(currentUser.getStarredProjects()));
         }
     }
 }

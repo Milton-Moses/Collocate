@@ -1,61 +1,81 @@
 package farmingdale.collocate;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.text.Text;
 
-import java.util.ArrayList;
-
 public class HomeController {
 
-    @FXML
-    private Text GreetingText;
-
-    // These names MUST match the fx:id tags in the FXML
-    @FXML
-    private ListView<String> recentProjectsList;
-    @FXML
-    private ListView<String> starredProjectsList;
-    @FXML
-    private ListView<String> recentClientsList;
+    @FXML private Text GreetingText;
+    @FXML private ListView<String> recentProjectsList;
+    @FXML private ListView<String> starredProjectsList;
+    @FXML private ListView<String> recentClientsList;
 
     private TesterPerson currentUser;
+    private MainMenuController mainController;
 
     @FXML
     public void initialize() {
+        // We only set the loading text here.
+        // We do NOT set up listeners yet because 'mainController' is still null.
         GreetingText.setText("Loading...");
     }
 
     /**
-     * Receives the logged-in user and populates the lists.
+     * Called by MainMenuController to pass the User and the Controller reference.
      */
-    public void initData(TesterPerson user) {
+    public void initData(TesterPerson user, MainMenuController mainController) {
         this.currentUser = user;
+        this.mainController = mainController;
 
         if (this.currentUser != null) {
-            // 1. Update Greeting
             GreetingText.setText("Hello " + currentUser.getUsername());
 
-            // 2. Populate Recent Projects
-            // We verify the list isn't null to avoid crashes
+            // 1. Populate the Lists
             if (currentUser.getRecentProjects() != null) {
-                ObservableList<String> projects = FXCollections.observableArrayList(currentUser.getRecentProjects());
-                recentProjectsList.setItems(projects);
+                recentProjectsList.setItems(FXCollections.observableArrayList(currentUser.getRecentProjects()));
             }
-
-            // 3. Populate Recent Clients
             if (currentUser.getRecentClients() != null) {
-                ObservableList<String> clients = FXCollections.observableArrayList(currentUser.getRecentClients());
-                recentClientsList.setItems(clients);
+                recentClientsList.setItems(FXCollections.observableArrayList(currentUser.getRecentClients()));
+            }
+            if (currentUser.getStarredProjects() != null) {
+                starredProjectsList.setItems(FXCollections.observableArrayList(currentUser.getStarredProjects()));
             }
 
-            // Starred Projects (Mock Data)
-            if (currentUser.getStarredProjects() != null) {
-                ObservableList<String> starredProjects = FXCollections.observableArrayList(currentUser.getStarredProjects());
-                starredProjectsList.setItems(starredProjects);
-            }
+            // 2. Setup the Listeners (Now that mainController is valid)
+            setupProjectListener(recentProjectsList);
+            setupProjectListener(starredProjectsList);
+
+            // Optional: Setup Client listener
+            setupClientListener(recentClientsList);
         }
+    }
+
+    /**
+     * Attaches a listener that uses the MainMenu controller to open the project.
+     */
+    private void setupProjectListener(ListView<String> listView) {
+        listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            // Check that we have a valid selection and the parent controller
+            if (newVal != null && mainController != null) {
+
+                // CORRECT: Ask the Main Menu to swap the content area
+                mainController.openProject(newVal);
+
+                // Clear selection so the user can click the same item again if they return
+                listView.getSelectionModel().clearSelection();
+            }
+        });
+    }
+
+    private void setupClientListener(ListView<String> listView) {
+        listView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal != null) {
+                System.out.println("Go to client view for: " + newVal);
+                // In the future: mainController.openClient(newVal);
+                listView.getSelectionModel().clearSelection();
+            }
+        });
     }
 }
