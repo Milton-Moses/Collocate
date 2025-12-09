@@ -1,0 +1,103 @@
+/* --- Global Background --- */
+.anchor-pane {
+    -fx-font-family: "Inter", "Arial";
+    -fx-background-color: rgba(0, 0, 0, 0.01);
+}
+
+/* --- The Main "Liquid Glass" Container --- */
+.glass-pane {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
+    -fx-background-radius: 30;
+    -fx-border-radius: 30;
+    -fx-border-color: rgba(255, 255, 255, 0.4);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 15, 0, 0, 5);
+}
+
+/* --- Headers (Sun, Mon, Tue...) --- */
+.weekday-label {
+    -fx-text-fill: rgba(255, 255, 255, 0.9);
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-min-width: 100px;
+}
+
+/* --- The Individual Calendar Days (Replaces button2 logic) --- */
+.calendar-day-button {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1px;
+    -fx-text-fill: white;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-alignment: TOP_LEFT; /* Numbers usually in top left */
+    -fx-padding: 10;
+}
+
+.calendar-day-button:hover {
+    -fx-background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    -fx-border-color: rgba(255, 255, 255, 0.6);
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.3), 10, 0, 0, 0);
+}
+
+.calendar-day-button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Highlight for "Today" --- */
+.current-day {
+    -fx-background-color: linear-gradient(to bottom right, #4A90E2, #357ABD);
+    -fx-border-color: #8bc1ff;
+    -fx-text-fill: white;
+}
+
+/* --- General Action Buttons (New Event, AI, etc) --- */
+.glass-button {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255, 255, 255, 0.3);
+    -fx-border-width: 1px;
+}
+
+.glass-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.4), 10, 0, 0, 0);
+}
+
+/* --- Danger/Logout Button --- */
+.glass-button-danger {
+    -fx-background-color: rgba(255, 80, 80, 0.2);
+    -fx-background-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-border-color: rgba(255, 80, 80, 0.4);
+}
+
+.glass-button-danger:hover {
+    -fx-background-color: rgba(255, 80, 80, 0.5);
+}
+
+/* --- Arrow Buttons (< >) --- */
+.glass-button-icon {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+}
+.glass-button-icon:hover {
+    -fx-effect: dropshadow(gaussian, white, 5, 0, 0, 0);
+}
