@@ -6,6 +6,9 @@ public class TesterPerson {
     private String email;
     private String username;
     private String password;
+
+
+
     public TesterPerson() {
 
         this.username = "Atester";
