@@ -13,7 +13,7 @@
             <Font size="23.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, User" wrappingWidth="458.21630859375" AnchorPane.leftAnchor="0.0">
+      <Text fx:id="GreetingText" fill="WHITE" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello, User" wrappingWidth="458.21630859375" AnchorPane.leftAnchor="0.0">
          <font>
             <Font name="Avenir Roman" size="61.0" />
          </font>
