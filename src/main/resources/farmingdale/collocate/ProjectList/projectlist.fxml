@@ -18,19 +18,25 @@
                 <Font name="Avenir Roman" size="61.0" />
             </font>
         </Text>
-        <ListView fixedCellSize="7.0" layoutY="202.0" prefHeight="540.0" prefWidth="658.0" />
+
+        <ListView fx:id="allProjectsList" fixedCellSize="24.0" layoutY="202.0" prefHeight="540.0" prefWidth="658.0" />
+
         <Text fill="WHITE" layoutX="717.0" layoutY="514.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starred Projects" wrappingWidth="198.21630859375">
             <font>
                 <Font size="23.0" />
             </font>
         </Text>
-        <ListView fixedCellSize="7.0" layoutX="717.0" layoutY="520.0" prefHeight="222.0" prefWidth="658.0" />
+
+        <ListView fx:id="starredProjectsList" fixedCellSize="24.0" layoutX="717.0" layoutY="520.0" prefHeight="222.0" prefWidth="658.0" />
+
         <Text fill="WHITE" layoutX="717.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recent Projects" wrappingWidth="198.21630859375">
             <font>
                 <Font size="23.0" />
             </font>
         </Text>
-        <ListView fixedCellSize="7.0" layoutX="717.0" layoutY="202.0" prefHeight="266.0" prefWidth="658.0" />
-      <TextField layoutX="125.0" layoutY="156.0" prefHeight="26.0" prefWidth="292.0" promptText="Search projects" styleClass="search-bar" stylesheets="@mainmenu.css" />
+
+        <ListView fx:id="recentProjectsList" fixedCellSize="24.0" layoutX="717.0" layoutY="202.0" prefHeight="266.0" prefWidth="658.0" />
+
+        <TextField layoutX="125.0" layoutY="156.0" prefHeight="26.0" prefWidth="292.0" promptText="Search projects" styleClass="search-bar" stylesheets="@mainmenu.css" />
     </children>
 </AnchorPane>

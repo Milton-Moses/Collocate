@@ -135,7 +135,7 @@
              <VBox alignment="CENTER" fillWidth="false" layoutX="253.0" layoutY="168.0" prefHeight="677.0" prefWidth="1288.0" xmlns:fx="http://javafx.com/fxml">
 
                  <VBox fx:id="contentArea" alignment="CENTER" prefHeight="709.0" prefWidth="1425.0" style="-fx-border-color: blue;">
-                     <fx:include source="../Home/home.fxml" />
+                     <fx:include source="../Home/home.fxml" fx:id="homeView" />
                  </VBox>
              </VBox>
          </children>

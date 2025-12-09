@@ -2,31 +2,16 @@ package farmingdale.collocate;
 
 public class Client {
     private String name;
-    private boolean isCompany;
+    private String type;
 
-    public Client() {
-        name = "None";
-        isCompany = false;
-    }
-
-    public Client(String name, boolean isCompany) {
+    public Client(String name, String type) {
         this.name = name;
-        this.isCompany = isCompany;
+        this.type = type;
     }
 
-    public String getName() {
-        return this.name;
-    }
+    public String getName() { return name; }
+    public String getType() { return type; }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public boolean isCompany() {
-        return isCompany;
-    }
-
-    public void setCompany(boolean isCompany) {
-        this.isCompany = isCompany;
-    }
+    @Override
+    public String toString() { return name; } // Important for Dropdowns
 }
