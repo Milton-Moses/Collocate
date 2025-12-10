@@ -17,6 +17,7 @@ module farmingdale.collocate {
     requires google.api.client;
     requires java.sql;
     requires google.cloud.core;
+    requires java.net.http;
 
     opens farmingdale.collocate to javafx.fxml;
     exports farmingdale.collocate;

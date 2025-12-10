@@ -8,37 +8,27 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import java.io.IOException;
-import java.util.ArrayList;
-
+import java.net.URI;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.net.http.HttpClient;
 /**
  * Controller for the login-view.fxml.
  * @author Milton Moses
  */
 public class LoginController {
+    private HttpClient client;
 
     @FXML
     private Button registerButton, loginButton;
 
     @FXML
     private TextField usernameField, passField;
-    private ArrayList<TesterPerson> registeredUsers;
 
-    /**
-     * Initialize is called automatically when the view loads.
-     * We use this to load our dummy data from the DataSeeder.
-     */
     @FXML
-    public void initialize() {
-        this.registeredUsers = DataSeeder.generateUsers(10);
-
-        // Debugging: Print valid users to console so you know who to login as
-        System.out.println("--- Valid Login Credentials ---");
-        for (TesterPerson p : registeredUsers) {
-            System.out.println("User: " + p.getUsername() + " | Pass: " + p.getPassword());
-        }
+    private void initialize() {
+        client = HttpClient.newBuilder().build();
     }
-
-
 
     /**
      * Brings the user to the Register page.
@@ -62,34 +52,50 @@ public class LoginController {
             showAlert("Login Error", "Please enter both username and password.");
             return;
         }
+        try {
+            String requestBody = String.format(
+                    "{\"email\":\"%s\",\"password\":\"%s\",\"returnSecureToken\":true}",
+                    inputUser, inputPass
+            );
 
-        TesterPerson validUser = null;
-        for (TesterPerson user : registeredUsers) {
-            if (user.getUsername().equals(inputUser) && user.verifyPassword(inputPass)) {
-                validUser = user;
-                break;
+            System.out.println("DEBUG: HttpRequest: " + requestBody);
+
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCrw3S4uDwnOnS7mdJRRgbjpxbXbc2JknY"))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(requestBody))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            int statusCode = response.statusCode();
+
+
+            if (statusCode >= 200 && statusCode < 300) {
+                System.out.println("Login Successful");
+            }
+            else {
+                throw new IOException("Firebase authentication failed with status code: " + statusCode);
             }
         }
-
-        if (validUser != null) {
-            System.out.println("Login Successful for: " + validUser.getUsername());
-            loadMainMenu(validUser);
-        } else {
-            showAlert("Login Failed", "Invalid username or password.");
+        catch (Exception e) {
+            showAlert("User not found", "User does not exist");
         }
+
+        //loadMainMenu(validUser);
+
     }
 
     /**
      * Helper to load the main menu and PASS the user data to it.
      */
-    private void loadMainMenu(TesterPerson loggedInUser) {
+    private void loadMainMenu() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenu/mainmenu.fxml"));
             Parent root = fxmlLoader.load();
 
 
             MainMenuController controller = fxmlLoader.getController();
-            controller.initData(loggedInUser);
+            //controller.initData(loggedInUser);
 
 
             Main.scene = new Scene(root, 1920, 1080);

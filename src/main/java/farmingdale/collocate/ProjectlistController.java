@@ -11,17 +11,17 @@ public class ProjectlistController {
     @FXML private ListView<String> starredProjectsList;
     @FXML private ListView<String> recentProjectsList;
 
-    private TesterPerson currentUser;
+    //private TesterPerson currentUser;
     private MainMenuController mainController;
 
-
+    /*
     public void initData(TesterPerson user, MainMenuController mainController) {
         this.currentUser = user;
         this.mainController = mainController;
 
         setupListeners();
         populateLists();
-    }
+    }*/
 
     private void setupListeners() {
         setupList(allProjectsList);
@@ -39,7 +39,7 @@ public class ProjectlistController {
             }
         });
     }
-
+    /*
     private void populateLists() {
         if (currentUser == null) return;
 
@@ -52,5 +52,5 @@ public class ProjectlistController {
         if (currentUser.getStarredProjects() != null) {
             starredProjectsList.setItems(FXCollections.observableArrayList(currentUser.getStarredProjects()));
         }
-    }
+    }*/
 }

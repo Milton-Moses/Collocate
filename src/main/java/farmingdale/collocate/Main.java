@@ -45,13 +45,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        ArrayList<TesterPerson> allUsers = DataSeeder.generateUsers(20);
-
-        for (TesterPerson p : allUsers) {
-            System.out.println("User: " + p.getUsername() + " | Password: " + p.getPassword());
-            System.out.println("   -> Clients: " + p.getDb().getClients().size());
-            System.out.println("   -> Events: " + p.getDb().getEvents().size());
-        }
         launch();
     }
 }

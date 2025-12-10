@@ -18,18 +18,9 @@ public class MainMenuController {
 
     @FXML private HomeController homeViewController;
 
-    private TesterPerson sessionUser;
-
     @FXML
     public void initialize() {
         setHomeButtonColorActive();
-    }
-
-    public void initData(TesterPerson user) {
-        this.sessionUser = user;
-        if (homeViewController != null) {
-            homeViewController.initData(user, this);
-        }
     }
 
     /**
@@ -73,13 +64,13 @@ public class MainMenuController {
             FXMLLoader loader = new FXMLLoader(fxmlUrl);
             Parent newView = loader.load();
             Object controller = loader.getController();
-
+            /*
             if (controller instanceof HomeController) {
                 ((HomeController) controller).initData(sessionUser, this);
             }
             else if (controller instanceof ProjectlistController) {
                 ((ProjectlistController) controller).initData(sessionUser, this);
-            }
+            }*/
 
             contentArea.getChildren().setAll(newView);
 
