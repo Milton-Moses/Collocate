@@ -22,7 +22,7 @@ public class Main extends Application {
     public static Stage mainStage;
     public static Firestore fstore;
     public static FirebaseAuth fauth;
-    private final FirestoreContext contextFirebase = new FirestoreContext();
+    public static final FirestoreContext contextFirebase = new FirestoreContext();
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,6 +30,7 @@ public class Main extends Application {
         mainStage = stage;
         scene = new Scene(fxmlLoader.load(), 1080, 720);
 
+        contextFirebase.firebase();
         mainStage.setTitle("Collocate");
         mainStage.setScene(scene);
         mainStage.show();
