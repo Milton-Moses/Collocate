@@ -12,7 +12,6 @@ public class HomeController {
     @FXML private ListView<String> starredProjectsList;
     @FXML private ListView<String> recentClientsList;
 
-    private TesterPerson currentUser;
     private MainMenuController mainController;
 
     @FXML
@@ -23,7 +22,7 @@ public class HomeController {
     /**
      * Called by MainMenuController to pass the User and the Controller reference.
      */
-    public void initData(TesterPerson user, MainMenuController mainController) {
+    public void initData(User user, MainMenuController mainController) {/*
         this.currentUser = user;
         this.mainController = mainController;
 
@@ -45,7 +44,7 @@ public class HomeController {
 
             // Optional: Setup Client listener
             setupClientListener(recentClientsList);
-        }
+        }*/
     }
 
     /**

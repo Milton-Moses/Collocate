@@ -9,7 +9,7 @@ import javafx.scene.control.ListView;
 
 import static farmingdale.collocate.Main.fstore;
 
-public class ProjectlistController {
+public class ProjectListController {
 
     @FXML private ListView<String> allProjectsList;
     @FXML private ListView<String> starredProjectsList;
@@ -50,6 +50,7 @@ public class ProjectlistController {
         }
 
         ApiFuture<QuerySnapshot> query = fstore.collection("projects").get();
+        /*
         if (currentUser.getAllProjects() != null) {
             allProjectsList.setItems(FXCollections.observableArrayList(currentUser.getAllProjects()));
         }
@@ -58,6 +59,6 @@ public class ProjectlistController {
         }
         if (currentUser.getStarredProjects() != null) {
             starredProjectsList.setItems(FXCollections.observableArrayList(currentUser.getStarredProjects()));
-        }
+        }*/
     }
 }

@@ -1,5 +1,8 @@
 package farmingdale.collocate;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -14,6 +17,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static farmingdale.collocate.Main.currUser;
+import static farmingdale.collocate.Main.fstore;
+
 public class EventViewController {
 
     @FXML private VBox eventListContainer;
@@ -25,12 +31,30 @@ public class EventViewController {
 
     @FXML
     public void initialize() {
-        events.add(new EventItem("Initial Client Meeting", LocalDate.now().minusDays(1), true));
-        events.add(new EventItem("Draft Architecture Diagram", LocalDate.now().plusDays(2), false));
-        events.add(new EventItem("Submit Budget Proposal", LocalDate.now().plusDays(5), false));
-        events.add(new EventItem("Team Kickoff", LocalDate.now().plusDays(7), false));
+        ApiFuture<QuerySnapshot> query = fstore.collection("eventList").get();
+        try {
+            QuerySnapshot querySnapshot = query.get();
+            List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
 
-        renderEvents();
+            for (QueryDocumentSnapshot document : documents) {
+                if (document.contains(currUser.getEmail())) {
+                    System.out.println("Found document belonging to " + currUser.getEmail());
+                    events.add(new EventItem(document.get("title").toString(), LocalDate.now(), (boolean) document.get("isCompleted")));
+                }
+            }
+
+            /*
+            events.add(new EventItem("Initial Client Meeting", LocalDate.now().minusDays(1), true));
+            events.add(new EventItem("Draft Architecture Diagram", LocalDate.now().plusDays(2), false));
+            events.add(new EventItem("Submit Budget Proposal", LocalDate.now().plusDays(5), false));
+            events.add(new EventItem("Team Kickoff", LocalDate.now().plusDays(7), false));
+            */
+            renderEvents();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("ERROR: Failed to load files from database.");
+        }
     }
 
     /**
