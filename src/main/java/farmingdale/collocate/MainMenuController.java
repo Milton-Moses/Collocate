@@ -22,7 +22,6 @@ public class MainMenuController {
     public void initialize() {
         setHomeButtonColorActive();
     }
-
     /**
      * Specialized method to load a specific project into the content area.
      */

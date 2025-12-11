@@ -19,7 +19,6 @@ public class DataSeeder {
      * @return An ArrayList of TesterPerson objects.
      * @author Milton Moses
      */
-    /*
     public static ArrayList<TesterPerson> generateUsers(int count) {
         ArrayList<TesterPerson> users = new ArrayList<>();
         Random random = new Random();
@@ -44,7 +43,7 @@ public class DataSeeder {
         users.add(0, admin);
 
         return users;
-    }*/
+    }
 
     private static String generateRandomUsername(String fName, String lName, Random rand) {
         int style = rand.nextInt(4);

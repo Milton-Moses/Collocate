@@ -23,6 +23,7 @@ public class Main extends Application {
     public static Firestore fstore;
     public static FirebaseAuth fauth;
     public static final FirestoreContext contextFirebase = new FirestoreContext();
+    public static User currUser;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,7 +31,7 @@ public class Main extends Application {
         mainStage = stage;
         scene = new Scene(fxmlLoader.load(), 1080, 720);
 
-        contextFirebase.firebase();
+        fstore = contextFirebase.firebase();
         mainStage.setTitle("Collocate");
         mainStage.setScene(scene);
         mainStage.show();
@@ -45,6 +46,13 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        ArrayList<TesterPerson> allUsers = DataSeeder.generateUsers(20);
+
+        for (TesterPerson p : allUsers) {
+            System.out.println("User: " + p.getUsername() + " | Password: " + p.getPassword());
+            System.out.println("   -> Clients: " + p.getDb().getClients().size());
+            System.out.println("   -> Events: " + p.getDb().getEvents().size());
+        }
         launch();
     }
 }

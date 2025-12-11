@@ -1,9 +1,13 @@
 package farmingdale.collocate;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.QuerySnapshot;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+
+import static farmingdale.collocate.Main.fstore;
 
 public class ProjectlistController {
 
@@ -14,14 +18,14 @@ public class ProjectlistController {
     //private TesterPerson currentUser;
     private MainMenuController mainController;
 
-    /*
-    public void initData(TesterPerson user, MainMenuController mainController) {
-        this.currentUser = user;
+
+    public void initData(User user, MainMenuController mainController) {
+        Main.currUser = user;
         this.mainController = mainController;
 
         setupListeners();
         populateLists();
-    }*/
+    }
 
     private void setupListeners() {
         setupList(allProjectsList);
@@ -39,10 +43,13 @@ public class ProjectlistController {
             }
         });
     }
-    /*
-    private void populateLists() {
-        if (currentUser == null) return;
 
+    private void populateLists() {
+        if (Main.currUser == null) {
+            System.out.println("ERROR: User not found.");
+        }
+
+        ApiFuture<QuerySnapshot> query = fstore.collection("projects").get();
         if (currentUser.getAllProjects() != null) {
             allProjectsList.setItems(FXCollections.observableArrayList(currentUser.getAllProjects()));
         }
@@ -52,5 +59,5 @@ public class ProjectlistController {
         if (currentUser.getStarredProjects() != null) {
             starredProjectsList.setItems(FXCollections.observableArrayList(currentUser.getStarredProjects()));
         }
-    }*/
+    }
 }

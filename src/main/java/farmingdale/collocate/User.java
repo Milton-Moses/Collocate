@@ -12,6 +12,7 @@ public class User {
         lastName = "None";
         email = "None";
         orgName = "None";
+        pass = "None";
     }
 
     public User(String firstName, String lastName, String email, String orgName, String pass) {
