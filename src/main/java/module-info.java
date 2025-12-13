@@ -14,6 +14,7 @@ module farmingdale.collocate {
     requires google.cloud.firestore;
     requires firebase.admin;
     requires com.google.api.apicommon;
+    requires java.net.http;
 
     opens farmingdale.collocate to javafx.fxml;
     exports farmingdale.collocate;

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="farmingdale.collocate.ClientEditController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="130.0" layoutY="135.0" prefHeight="131.0" prefWidth="170.0" spacing="30.0">
+         <children>
+            <TextField fx:id="clientNameField" />
+            <CheckBox fx:id="isCompanyCheck" mnemonicParsing="false" text="Company" />
+            <Button fx:id="saveChangesButton" mnemonicParsing="false" onAction="#saveCurrClient" text="Save Changes" />
+         </children>
+      </VBox>
+      <ComboBox fx:id="projectDropdown" layoutX="340.0" layoutY="188.0" prefWidth="150.0" promptText="Choose Project" />
+   </children>
+</AnchorPane>

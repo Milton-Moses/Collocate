@@ -57,7 +57,7 @@
             </VBox>
          </children>
       </HBox>
-      <Button fx:id="registerButton" layoutX="487.0" layoutY="544.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="42.0" prefWidth="105.0" styleClass="register-button" text="Register">
+      <Button fx:id="registerButton" layoutX="487.0" layoutY="544.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="42.0" prefWidth="105.0" styleClass="register-button" text="Register">
          <font>
             <Font size="16.0" />
          </font>

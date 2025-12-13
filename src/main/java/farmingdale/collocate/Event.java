@@ -1,43 +1,32 @@
 package farmingdale.collocate;
 
+import java.time.LocalDate;
+
 public class Event {
-    private String date;
-    private String time;
-    private Client associatedClient;
+    private String eventName;
+    private String associatedProject;
+    private LocalDate date;
 
-    public Event() {
-        date = "0/0/2000";
-        time = "12:00am";
-        associatedClient = null;
-    }
-
-    public Event(String date, String time, Client associatedClient) {
-        this.date = date;
-        this.time = time;
-        this.associatedClient = associatedClient;
-    }
-
-    public String getDate() {
-        return this.date;
-    }
-
-    public void setDate(String date) {
+    public Event(String eventName, String project, LocalDate date) {
+        this.eventName = eventName;
+        this.associatedProject = project;
         this.date = date;
     }
 
-    public String getTime() {
-        return this.time;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public String getAssociatedProject() {
+        return associatedProject;
     }
 
-    public Client getAssociatedClient() {
-        return this.associatedClient;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setClient(Client associatedClient) {
-        this.associatedClient = associatedClient;
+    @Override
+    public String toString() {
+        return eventName + " (" + date + ")";
     }
 }
